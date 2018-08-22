@@ -14,14 +14,42 @@ function newsItemReceived(newsItem) {
     }
 }
 
-export function fetchNews(fakeNews) {
-    return dispatch => {
-        dispatch(newReceived(fakeNews))
+function newsItemLoading() {
+    return {
+        type: actionTypes.NEWSITEM_LOADING
     }
 }
 
-export function fetchNewsItem(fakeNewsItem) {
+export function fetchNews() {
     return dispatch => {
-        dispatch(newsItemReceived(fakeNewsItem))
+        return fetch('/news')
+            .then((response) => response.json())
+            .then((data) => dispatch(newReceived(data.data)))
+            .catch((e) => console.log(e));
     }
 }
+
+export function fetchNewsItem(id) {
+    return dispatch => {
+        return fetch(`/news/${id}`)
+            .then((response) => response.json())
+            .then((data) => dispatch(newsItemReceived(data.data)))
+            .catch((e) => console.log(e))
+
+    }
+}
+
+export function submitNewsStory(data) {
+    return dispatch => {
+        return fetch('/news/', {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data),
+            model: 'cors'
+        }).catch((e) => console.log(e));
+    }
+}
+

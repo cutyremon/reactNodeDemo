@@ -10,7 +10,7 @@ class NewsItemListing extends Component {
     render() {
         return (
             <div>
-                <div><Link to={'/new/' + this.props.data.id} >{this.props.data.title}</Link></div>
+                <div><Link to={'/new/' + this.props.data._id} >{this.props.data.title}</Link></div>
                 <div>{this.props.data.teaser}</div>
             </div>
         )
