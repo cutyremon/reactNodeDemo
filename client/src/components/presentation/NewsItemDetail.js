@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { fetchNewsItem } from '../../actions/actions'
+import { fetchNewsItem } from '../../actions/newsActions'
 
 class NewsItemDetail extends Component {
     render() {

@@ -10,6 +10,7 @@ import { Provider } from 'react-redux';
 import store from './stores/store';
 import NewsArticle from './containers/NewsArticle';
 import NewsSubmit from './components/containers/NewsSubmit'
+import logined from './components/containers/Authentication'
 
 class App extends Component {
   render() {
@@ -20,7 +21,9 @@ class App extends Component {
             <Route exact path="/" component={Home} />
             <Route path="/about" component={About} />
             <Route path="/new/:id" component={NewsArticle} />
-            <Route path="/submit"  component={NewsSubmit} />
+            <Route path="/submit" component={NewsSubmit} />
+            <Route path="/login" component={logined} />
+
           </Layout>
         </BrowserRouter>
       </Provider>

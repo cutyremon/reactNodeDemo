@@ -4,6 +4,7 @@ const newsController = require('../controllers/newsController')
 
 
 router.get('/', function (req, res, next) {
+    
     newsController.find(req.query, function (err, results) {
         if (err) {
             console.log(err);
